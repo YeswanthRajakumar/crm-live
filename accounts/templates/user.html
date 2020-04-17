@@ -1,0 +1,39 @@
+{%  extends 'base.html' %}
+{% block content %}
+    {% include 'status.html' %}
+
+    {% if condition_value == 0 %}
+        <h2> Not orders yet </h2>
+    {% endif %}
+
+    {% if condition_value == 1 %}
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+                    <table class="table table-sm">
+                        <tr>
+                            <th>Product</th>
+                            <th>Category</th>
+                            <th>Date Ordered</th>
+                            <th>Status</th>
+                            <th>Update</th>
+                            <th>Remove</th>
+                        </tr>
+                        {%  for customer_product in customer_orders %}
+                        <tr>
+
+                            <td>{{ customer_product.ordered_product }}</td>
+                            <td>{{ customer_product.ordered_product.category }}</td>
+                            <td>{{ customer_product.date_created }}</td>
+                            <td>{{ customer_product.status }}</td>
+
+                        </tr>
+                        {% endfor %}
+
+			</table>
+		</div>
+	</div>
+</div>
+    {% endif %}
+
+{% endblock %}

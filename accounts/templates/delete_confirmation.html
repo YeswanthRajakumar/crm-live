@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+
+    <h2> Delete Confirm</h2>
+
+Are you sure want to delete  the item {{ ordered_product_name }} ?
+    <form action=" " method="POST">
+    {% csrf_token %}
+    <button class="btn btn-dark" type="submit"> Delete </button>
+    <a  href="{% url 'home' %}" class="btn btn-success"> cancel </a>
+    </form>
+
+{% endblock %}
